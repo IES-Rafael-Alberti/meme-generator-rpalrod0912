@@ -23,7 +23,7 @@ if(isset($_POST['usuario'])) {
         $_SESSION["usuario"] = $usuario;
         //Vinculamos la varaible session con el id del array datos usuario que contiene los datos del usuario
         $_SESSION["ID"]=$datosUsuario[0]["ID"];
-        $_SESSION["pwd"]=$datos[0]["pwd"];
+        $_SESSION["pwd"]=$datos["pwd"];
         session_write_close();
         header("Location: index.php");
         exit(0);

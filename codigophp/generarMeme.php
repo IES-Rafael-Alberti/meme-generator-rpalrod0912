@@ -1,23 +1,26 @@
 <?php
- if (isset($_POST[$miArray[0]])){
-    $datos=array("texto1"=>$miArray[0])
+require("testlogin.php");
+
+$id=$_POST['idMeme'];
+$cajas=$_POST['cajas'];
+
+ if (isset($_POST["texto1"])){
      //url for meme creation
     $url = 'https://api.imgflip.com/caption_image';
-    $cajas=$_GET['cajas'];
-    $data=array();
-    $id=$_GET['id'];
+    $boxes=array();
  //The data you want to send via POST
- for($z=0;$z<=count($miArray)){
-    $data.push(array("text" => "$miArray[$i]",
-    "color" => "#ff8484"))
- }
+      for($z=1;$z<=$cajas;$z++){
+      $datoForm=$_POST["texto$z"];
+      array_push($boxes,array("text" => $datoForm,
+      "color" => "#ff8484"));
+      }
  $fields = array(
          "template_id" => $id,
-         "username" => $_SESSION["usuario"],
-         "password" => $_SESSION["pwd"],
-         "boxes" =>$data;
+         "username" => "fjortegan",
+         "password" => "pestillo",
+         "boxes" =>$boxes
          );
- $fields = array(
+/*$fields = array(
          "template_id" => "112126428",
          "username" => "fjortegan",
          "password" => "pestillo",
@@ -30,7 +33,7 @@
              array("text" => "Backend",
                    "color" => "#2374ab")
          ));
- 
+ */
  
  //url-ify the data for the POST
  $fields_string = http_build_query($fields);
@@ -54,7 +57,9 @@
  
  //if success show image
  if($data["success"]) {
-     echo "<img src='" . $data["data"]["url"] . "'>";
+      //CUIDADO CON LOS ESPACIOS
+     //echo "<img src=".$data["data"]["url"].">";
+     echo "<img src='".$data["data"]["url"]."'>";
  }
  }
 

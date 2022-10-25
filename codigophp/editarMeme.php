@@ -9,21 +9,22 @@
 <body>
     <form action="generarMeme.php" method="post">
         <input type="text" name="idMeme" hidden value="<?php echo $_GET["id"];?>">
+        <input type="text" name="cajas" hidden value="<?php echo $_GET["cajas"];?>">
         <?php
             $id=$_GET["id"];
             $cajas=$_GET["cajas"];
             $url=$_GET["url"];
             $i=1;
-                        echo "<img width='150px' src='".$url."'>";
-                        while($i<=$cajas){
-                            echo "</br><label for='texto$i'>Texto $i</label>";
-                            echo "<input type='text2' name='texto$i' id='texto$i'>";
-                            echo "<br>";
-                            $i++;
-                        }
+                echo "<img width='150px' src='".$url."'>";
+                while($i<=$cajas){
+                    echo "</br><label for='texto$i'>Texto $i</label>";
+                    echo "<input type='text2' name='texto$i' id='texto$i'>";
+                    echo "<br>";
+                    $i++;
+                }
         ?>
         </br>
-        <input type="submit" value="CREAR MEME";
+        <input type="submit" value="CREAR MEME">
     </form>
 </body>
 </html>

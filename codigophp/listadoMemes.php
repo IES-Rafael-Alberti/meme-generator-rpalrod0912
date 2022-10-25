@@ -1,4 +1,5 @@
 <?php
+require("testlogin.php");
 require("recibirJson.php");
 //if success shows images
 if($data["success"]) {
