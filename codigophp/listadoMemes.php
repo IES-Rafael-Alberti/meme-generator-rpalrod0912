@@ -6,8 +6,9 @@ if($data["success"]) {
     foreach($data["data"]["memes"] as $meme) {
         //show meme image
         $memeId=$meme["id"];
-        echo "<a href='editarMeme.php?id=".$memeId."'><img  width='50px' src='" . $meme["url"] . "'></a>";
         $cajas=$meme["box_count"];
+        $url=$meme["url"];
+        echo "<a href='editarMeme.php?id=".$memeId."&cajas=".$cajas."&url=".$url."'><img  width='50px' src='" . $meme["url"] . "'></a>";
     }
 }
 
