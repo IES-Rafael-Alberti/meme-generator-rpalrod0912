@@ -20,9 +20,21 @@ require("testlogin.php");
         $idUsuario=$_SESSION["ID"];
         $memes = $conn->query("SELECT ID,ruta,IdUsuario FROM Memes WHERE IdUsuario=$idUsuario");
         $memes_assoc=$memes->fetchAll(PDO::FETCH_ASSOC);
+        print("<table class='styled-table'>");
         foreach($memes_assoc as $meme){
-            echo "<a href='verMeme.php?id=".$meme['ID']."&url=".$meme['ruta']."'><img  width='50px' src='" . $meme["ruta"] . "'></a>";
+            print("<thead>");
+            print("<tr>");
+            print("<th>");
+         print("<a href='eliminarMeme.php?ID=".$meme["ID"]."'><i class='fa-solid fa-trash-can'></i></a>");
+            print($meme['ID']);
+            print("</th>"); 
+            print("</thead>");
+            print("<td>");
+            echo "<a href='mostrarMeme.php?id=".$meme['ID']."&url=".$meme['ruta']."'><img  width='50px' src='" . $meme["ruta"] . "'></a>";
+            print("</td>");
+            print("</tr>");
         }      
+        print("</table>");
         //Error en la query usarios
         /*$usuarios=$conn->query("SELECT * FROM Memes WHERE IdUsuario=$idusuario");
         $datos=array("idusuario"=>$idusuario);

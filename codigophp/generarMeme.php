@@ -76,7 +76,7 @@ $cajas=$_POST['cajas'];
 </head>
 <body>
       <form action="Index.php">
-      <input type="submit" onclick="volverAtras" VALUE="VOLVER A INCIO">      
-</form>
+            <input type="submit" onclick="volverAtras" VALUE="VOLVER A INCIO">      
+      </form>
 </body>
 </html>
