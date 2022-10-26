@@ -18,7 +18,6 @@
         print("Te has dado de alto exitosamente");
         header("Location: Index.php");
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -18,7 +18,11 @@ require("testlogin.php");
         require("conecta.php");
         echo "<h2>Hola ".$_SESSION["usuario"]." bienvenido de nuevo</h2>";
         $idUsuario=$_SESSION["ID"];
-        
+        $memes = $conn->query("SELECT ID,ruta,IdUsuario FROM Memes WHERE IdUsuario=$idUsuario");
+        $memes_assoc=$memes->fetchAll(PDO::FETCH_ASSOC);
+        foreach($memes_assoc as $meme){
+            echo "<a href='verMeme.php?id=".$meme['ID']."&url=".$meme['ruta']."'><img  width='50px' src='" . $meme["ruta"] . "'></a>";
+        }      
         //Error en la query usarios
         /*$usuarios=$conn->query("SELECT * FROM Memes WHERE IdUsuario=$idusuario");
         $datos=array("idusuario"=>$idusuario);
@@ -30,7 +34,7 @@ require("testlogin.php");
     </form>
    <!-- Mascotas: <i class='fa-solid fa-plus'></i>
 -->
-    <?php
+   <!--    <?php
     /*$mascotas =$conn->query("SELECT * FROM MASCOTAS");
 
     print("<table class='styled-table'>");
@@ -42,6 +46,6 @@ require("testlogin.php");
         print("</tr>");
     }
     print("</table>");*/
-    ?>
+    ?>-->
 </body>
 </html>

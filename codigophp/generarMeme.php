@@ -1,6 +1,11 @@
 <?php
 require("testlogin.php");
+require("conecta.php");
 
+function volverAtras(){
+      header("Location:Index.php");
+      exit(0);
+}
 $id=$_POST['idMeme'];
 $cajas=$_POST['cajas'];
 
@@ -19,22 +24,7 @@ $cajas=$_POST['cajas'];
          "username" => "fjortegan",
          "password" => "pestillo",
          "boxes" =>$boxes
-         );
-/*$fields = array(
-         "template_id" => "112126428",
-         "username" => "fjortegan",
-         "password" => "pestillo",
-
-         "boxes" => array( 
-             array("text" => "Frontend",
-                   "color" => "#ff8484"),
-             array("text" => "Alumno DAW",
-                   "color" => "#D6FFF6"),
-             array("text" => "Backend",
-                   "color" => "#2374ab")
-         ));
- */
- 
+         ); 
  //url-ify the data for the POST
  $fields_string = http_build_query($fields);
  
@@ -59,10 +49,34 @@ $cajas=$_POST['cajas'];
  if($data["success"]) {
       //CUIDADO CON LOS ESPACIOS
      //echo "<img src=".$data["data"]["url"].">";
+     $urlImg=$data["data"]["url"];
      echo "<img src='".$data["data"]["url"]."'>";
+     $sql="INSERT INTO Memes (ruta,IdUsuario) VALUES (:ruta,:IdUsuario)";
+     $datoSql=array("ruta"=>$urlImg,
+                    "IdUsuario"=>$_SESSION['ID']);
+      $stmt=$conn->prepare($sql);
+
+      if ($stmt->execute($datoSql) !=1){
+            print("Nose pudo guardar el meme");
+            header("Location:editarMeme.php");
+            exit(0);
+      }
+
+      
  }
  }
-
-
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+      <form action="Index.php">
+      <input type="submit" onclick="volverAtras" VALUE="VOLVER A INCIO">      
+</form>
+</body>
+</html>
