@@ -55,12 +55,12 @@ body {
   .styled-table thead tr{
    
     background-color: white;
-    color: #ffffff;
+    color: black;
     text-align: left;
   }
   .styled-table th{
     background-color: white;
-    color: white;
+    color: black;
   }
   .styled-table td,
   .styled-table th{

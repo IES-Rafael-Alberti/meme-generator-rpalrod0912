@@ -17,13 +17,14 @@
             $i=1;
                 echo "<img width='150px' src='".$url."'>";
                 while($i<=$cajas){
-                    echo "</br><label for='texto$i'>Texto $i</label>";
-                    echo "<input type='text2' name='texto$i' id='texto$i'>";
+                    echo "</br><label for='texto$i'>Texto $i</label> ";
+                    echo "<input type='text2' name='texto$i' id='texto$i'> ";
+                    echo "<input type='color' name='color$i' id='color$i'>";
                     echo "<br>";
                     $i++;
                 }
         ?>
-        </br>
+        </br>        
         <input type="submit" value="CREAR MEME">
     </form>
 </body>
