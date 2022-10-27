@@ -1,4 +1,9 @@
 <?php
+function registrarme(){
+    header("Location: registro.php");
+    exit(0);
+}
+
 if(isset($_POST['usuario'])) {
    require("conecta.php");
 
@@ -49,5 +54,9 @@ if(isset($_POST['usuario'])) {
     <input type="password" name="password" id="password">
     <input type="submit" value="Login">
 </form>    
+<form action="registro.php" method="post">
+    <br>O si no tienes un cuenta registrate<br>
+    <button>REGISTRARME</button>
+</form>
 </body>
 </html>

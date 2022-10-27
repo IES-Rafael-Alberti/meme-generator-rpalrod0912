@@ -15,8 +15,7 @@
             print("No se pudo registrar ese usuario");
             exit(0);
         }
-        print("Te has dado de alto exitosamente");
-        header("Location: Index.php");
+        header("Location: login.php");
     }
 ?>
 <!DOCTYPE html>
@@ -32,7 +31,7 @@
     <label for="usuario">Nombre de Usuario</label>
     <input type="text" name="usuario" id="usuario">
     <label for="contraseña">Contraseña</label>
-    <input type="password" name="password" id="password">Contraseña</input>
+    <input type="password" name="password" id="password">
     <label for="foto">Foto</label>
     <input type="file" name="foto" id="foto">
     <input type="submit" value="Registarme">

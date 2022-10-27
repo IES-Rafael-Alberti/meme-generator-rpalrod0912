@@ -16,8 +16,12 @@ require("testlogin.php");
     CREAR MEME: <a href="listadoMemes.php"><i class="fa-solid fa-plus"></i></a>
     <?php
         require("conecta.php");
-        echo "<h2>Hola ".$_SESSION["usuario"]." bienvenido de nuevo</h2>";
         $idUsuario=$_SESSION["ID"];
+        echo "<h2>Hola ".$_SESSION["usuario"]." bienvenido de nuevo</h2>";
+        $imgUsuario= $conn->query("SELECT Foto FROM usuarios WHERE ID=$idUsuario");
+        $imgPerfil=$imgUsuario->fetchAll(PDO::FETCH_ASSOC);
+        $img=$imgPerfil[0]['Foto'];
+        echo "<img height='180px' width='300px' src='fotos/".$img."'>";
         $memes = $conn->query("SELECT ID,ruta,IdUsuario FROM Memes WHERE IdUsuario=$idUsuario");
         $memes_assoc=$memes->fetchAll(PDO::FETCH_ASSOC);
         print("<table class='styled-table'>");
@@ -25,7 +29,7 @@ require("testlogin.php");
             print("<thead>");
             print("<tr>");
             print("<th>");
-         print("<a href='eliminarMeme.php?ID=".$meme["ID"]."'><i class='fa-solid fa-trash-can'></i></a>");
+            print("<a href='eliminarMeme.php?ID=".$meme["ID"]."'><i class='fa-solid fa-trash-can'></i></a>");
             print($meme['ID']);
             print("</th>"); 
             print("</thead>");
