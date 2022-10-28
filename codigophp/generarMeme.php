@@ -50,10 +50,12 @@ $cajas=$_POST['cajas'];
  if($data["success"]) {
       //CUIDADO CON LOS ESPACIOS
      //echo "<img src=".$data["data"]["url"].">";
+     $memeName=$_SESSION["usuario"]."_".date("dmyhis").".jpg";
+     file_put_contents("fotos/$memeName",file_get_contents($data["data"]["url"]));
      $urlImg=$data["data"]["url"];
      echo "<img src='".$data["data"]["url"]."'>";
      $sql="INSERT INTO Memes (ruta,IdUsuario) VALUES (:ruta,:IdUsuario)";
-     $datoSql=array("ruta"=>$urlImg,
+     $datoSql=array("ruta"=>$memeName,
                     "IdUsuario"=>$_SESSION['ID']);
       $stmt=$conn->prepare($sql);
 

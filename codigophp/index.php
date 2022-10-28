@@ -34,7 +34,7 @@ require("testlogin.php");
             print("</th>"); 
             print("</thead>");
             print("<td>");
-            echo "<a href='mostrarMeme.php?id=".$meme['ID']."&url=".$meme['ruta']."'><img  width='50px' src='" . $meme["ruta"] . "'></a>";
+            echo "<a href='mostrarMeme.php?id=".$meme['ID']."&url=".$meme['ruta']."'><img  width='50px' src='fotos/" . $meme["ruta"] . "'></a>";
             print("</td>");
             print("</tr>");
         }      

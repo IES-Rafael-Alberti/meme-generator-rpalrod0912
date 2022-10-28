@@ -82,7 +82,6 @@ body {
   .styled-table{
     display: flexbox;
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -90,6 +89,6 @@ body {
     display: flexbox;
     justify-content: center;
     align-items: center;
-
+    margin:0 auto;
   }
 

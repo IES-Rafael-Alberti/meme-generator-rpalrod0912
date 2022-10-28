@@ -3,7 +3,7 @@ function volverAtras(){
     header("Location:Index.php");
     exit(0);
 }
-echo "<img width='400px' src='".$_GET["url"]."'>";
+echo "<img width='400px' src='fotos/".$_GET["url"]."'>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
